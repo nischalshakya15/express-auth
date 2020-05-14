@@ -4,7 +4,7 @@ dotenv.config();
 
 export const config = {
     app: {
-        name: process.env.NAME,
+        name: process.env.NAME || 'Server',
         port: process.env.PORT || 8080,
         host: process.env.HOST || '0.0.0.0'
     }
