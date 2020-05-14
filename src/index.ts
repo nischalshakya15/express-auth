@@ -1,0 +1,1 @@
+console.log('Initial setup with express and typescript');
