@@ -1,12 +1,9 @@
-import express from 'express';
+import {config} from "./config/config";
+import app from './app';
+import logger from './config/logger';
 
-const app: express.Application = express();
-const port = 8080;
+const port = config.app.port;
 
-app.get('/', (req, res) => {
-    res.send('Hello world');
-});
-
-app.listen(port, err => {
-    console.log(`Server is listening on ${port}`);
+app.listen(port, () => {
+    logger.info(`Server started at port ${port}`);
 });
