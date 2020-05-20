@@ -9,7 +9,11 @@
     "start": "node build/index.js",
     "tslint": "tslint --project tsconfig.json",
     "prettier:base": "prettier --parser typescript --single-quote",
-    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
+    "knex": "ts-node -r ./node_modules/dotenv/config ./node_modules/.bin/knex  --knexfile='src/config/knexfile.ts'",
+    "migrate:make": "ts-node -r ./node_modules/dotenv/config ./node_modules/.bin/knex  --knexfile='src/config/knexfile.ts' migrate:make",
+    "migrate:latest": "ts-node -r ./node_modules/dotenv/config ./node_modules/.bin/knex  --knexfile='src/config/knexfile.ts' migrate:latest",
+    "migrate:rollback": "ts-node -r ./node_modules/dotenv/config ./node_modules/.bin/knex  --knexfile='src/config/knexfile.ts' migrate:rollback"
   },
   "husky": {
     "hooks": {
@@ -37,6 +41,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "knex": "^0.21.1",
+    "mysql2": "^2.1.0",
     "winston": "^3.2.1",
     "winston-loggly-bulk": "^3.1.0"
   }
