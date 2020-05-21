@@ -6,9 +6,10 @@ export const config = {
   app: {
     name: process.env.NAME || 'Server',
     port: process.env.PORT || 8080,
-    host: process.env.HOST || '0.0.0.0'
+    host: process.env.HOST || '0.0.0.0',
+    basePath: process.env.BASE_PATH || '/api',
   },
-  database: getActiveDatabase(process.env.ACTIVE_DB || 'mysql2')
+  database: getActiveDatabase(process.env.ACTIVE_DB || 'mysql2'),
 };
 
 function getActiveDatabase(db: string) {
@@ -19,8 +20,8 @@ function getActiveDatabase(db: string) {
         user: process.env.DB_MYSQL_USER,
         password: process.env.DB_MYSQL_PASSWORD,
         database: process.env.DB_NAME,
-        host: process.env.DB_HOST || '127.0.0.1'
-      }
+        host: process.env.DB_HOST || '127.0.0.1',
+      },
     };
   }
 }

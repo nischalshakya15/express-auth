@@ -5,11 +5,11 @@ export const knexConfig = {
   migrations: {
     tableName: 'migrations_express_server',
     directory: '../migrations',
-    extensions: ['ts']
+    extensions: ['ts'],
   },
   seeds: {
-    directory: '../seeds'
-  }
+    directory: '../seeds',
+  },
 };
 
 module.exports = knexConfig;
