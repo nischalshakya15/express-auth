@@ -28,11 +28,11 @@ Sample starter project with required configuration such as express, typescript, 
 
 - Open the browser
 
-  `http://localhost:8080`
+  `http://localhost:8080/api-docs`
 
 ## Using Docker
 
-- `docker-compose --compability up -d`
+- `docker-compose --compatibility up -d`
 
 ### References
 
@@ -49,3 +49,5 @@ https://codeburst.io/a-generalized-solution-to-authorization-in-node-js-9a38d991
 https://levelup.gitconnected.com/tutorial-for-authentication-and-authorization-in-a-node-application-772bef191dae
 
 https://dev.to/mezzolite/beginner-node-js-many-to-many-relationships-3nln
+
+http://zetcode.com/javascript/winston/

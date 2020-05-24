@@ -24,7 +24,7 @@ const options = {
   },
   error: {
     filename: './logs/error.log',
-    level: 'info',
+    level: 'error',
     format: format.combine(
       format.timestamp(),
       format.printf((log) => {
