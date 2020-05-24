@@ -18,6 +18,8 @@ Sample starter project with required configuration such as express, typescript, 
 
 - Rename env.example to .env file
 
+- Update configuration of .env file which as per your system.
+
 - Running in **development** mode
 
   `npm run start:dev`
