@@ -18,7 +18,7 @@ Sample starter project with required configuration such as express, typescript, 
 
 - Rename env.example to .env file
 
-- Update configuration of .env file which as per your system
+- Update configuration of .env file as per your system
 
 - Create a database **express_server**
 
