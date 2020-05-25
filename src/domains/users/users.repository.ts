@@ -14,7 +14,7 @@ export async function create(user: Users): Promise<Users> {
   const id: number[] = await db.connection().transaction(async (trx) => {
     const userId: number[] = await trx(USERS_TABLE).insert({
       username,
-      password,
+      password
     });
     const usersRolePayload = await usersRolesPayload(userId[0], roles);
     await trx(USERS_ROLES_TABLE).insert(usersRolePayload);
@@ -39,16 +39,21 @@ export async function fetchById(id: number): Promise<Users> {
 }
 
 export async function update(id: number, user: Users): Promise<Users> {
-  const { username, password } = user;
-  await db
-    .connection()(USERS_TABLE)
-    .update({ username, password })
-    .where({ id });
+  const { username, password, roles } = user;
+  await db.connection().transaction(async (trx) => {
+    await trx(USERS_TABLE).update({ username, password }).where({ id });
+    await trx(USERS_ROLES_TABLE).del().where({ user_id: id });
+    const usersRolePayload = await usersRolesPayload(id, roles);
+    await trx(USERS_ROLES_TABLE).insert(usersRolePayload);
+  });
   return await fetchById(id);
 }
 
 export async function remove(id: number): Promise<void> {
-  await db.connection()(USERS_TABLE).where({ id }).del();
+  await db.connection().transaction(async (trx) => {
+    await trx(USERS_ROLES_TABLE).del().where({ user_id: id });
+    await trx(USERS_TABLE).del().where({ id });
+  });
 }
 
 function mapToModel(users: any[]) {
@@ -73,7 +78,7 @@ async function usersRolesPayload(id: number, roles: any[]) {
   roles.forEach((r) => {
     const userRoles = {
       user_id: id,
-      roles: r,
+      roles: r
     };
     rolesPayload.push(userRoles);
   });
