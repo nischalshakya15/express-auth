@@ -18,7 +18,17 @@ Sample starter project with required configuration such as express, typescript, 
 
 - Rename env.example to .env file
 
-- Update configuration of .env file which as per your system.
+- Update configuration of .env file which as per your system
+
+- Create a database **express_server**
+
+- Run a migration file which will create tables in the database
+
+    ``npm run migrate:latest``
+
+- Run a seed file which will dump data into tables
+
+    `npm run seed:run`
 
 - Running in **development** mode
 
