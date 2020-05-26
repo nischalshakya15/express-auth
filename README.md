@@ -43,8 +43,23 @@ Sample starter project with required configuration such as express, typescript, 
   `http://localhost:8080/api-docs`
 
 ## Using Docker
+- Run the container
+  
+  **Make sure you don't have any application running on 3306 and 8080 port**
 
-- `docker-compose --compatibility up -d`
+    `docker-compose --compatibility up -d`
+     
+- Create a tables in database
+
+    `npm run migrate:latest`
+
+- Run a seed file which will dump data into users table
+
+    `npm run seed:run`
+
+- Open the browser
+    
+    `http://localhost:8080/api-docs`
 
 ### References
 
