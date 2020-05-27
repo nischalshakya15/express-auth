@@ -78,3 +78,5 @@ https://levelup.gitconnected.com/tutorial-for-authentication-and-authorization-i
 https://dev.to/mezzolite/beginner-node-js-many-to-many-relationships-3nln
 
 http://zetcode.com/javascript/winston/
+
+https://swagger.io/docs/specification/authentication/

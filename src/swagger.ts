@@ -8,12 +8,16 @@ import {
 } from './swagger/users.swagger';
 
 export const swaggerDocument = {
-  swagger: '2.0',
+  openapi: '3.0.0',
   info: {
     version: '1.0.0',
     title: 'Users CRUD API DOCUMENTATION',
   },
-  basePath: '/api',
+  servers: [
+    {
+      url: '/api',
+    },
+  ],
   tags: [
     {
       name: 'Users',
@@ -29,6 +33,18 @@ export const swaggerDocument = {
       delete: deleteUser,
       get: getOneUser,
     },
+  },
+  components: {
+    securitySchemes: {
+      authorization: {
+        type: 'http',
+        scheme: 'Bearer',
+        bearerFormat: 'JWT',
+      },
+    },
+  },
+  security: {
+    authorization: [],
   },
   definitions: {
     Users: users,
