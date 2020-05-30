@@ -6,7 +6,7 @@ export async function up(knex: Knex): Promise<any> {
   return knex.schema.createTable(USERS_TABLE, (table) => {
     table.specificType('id', 'bigint(10) not null primary key auto_increment');
     table.string('username', 50).notNullable();
-    table.string('password', 50).notNullable();
+    table.string('password', 200).notNullable();
   });
 }
 

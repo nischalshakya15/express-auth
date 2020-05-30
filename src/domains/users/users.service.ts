@@ -1,11 +1,13 @@
 import { Users } from './users';
 import * as userRepository from './users.repository';
+import * as bcrypt from 'bcryptjs';
 
 export async function fetchAll(): Promise<Users[]> {
   return await userRepository.fetchAll();
 }
 
 export async function create(user: Users): Promise<Users> {
+  user.password = await bcrypt.hash(user.password, 10);
   return await userRepository.create(user);
 }
 
