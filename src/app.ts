@@ -1,7 +1,7 @@
 import express, { Request } from 'express';
 import routes from './routes';
 import { config } from './config/config';
-import { GlobalExceptionHandler } from './middlewares/GlobalExceptionHandler';
+import { GlobalExceptionHandler } from './exceptions/GlobalExceptionHandler';
 import * as HttpStatus from 'http-status-codes';
 import { globalExceptionHandlerMiddleware } from './middlewares/GlobalExceptionHandlerMiddleware';
 import { swaggerDocument } from './swagger';

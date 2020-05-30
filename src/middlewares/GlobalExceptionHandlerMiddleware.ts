@@ -1,4 +1,4 @@
-import { GlobalExceptionHandler } from './GlobalExceptionHandler';
+import { GlobalExceptionHandler } from '../exceptions/GlobalExceptionHandler';
 import { NextFunction, Request, Response } from 'express';
 import * as HttpStatus from 'http-status-codes';
 import logger from '../config/logger';

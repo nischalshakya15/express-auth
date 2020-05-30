@@ -1,7 +1,7 @@
 import { Users } from './users';
 import * as userRepository from './users.repository';
 import * as bcrypt from 'bcryptjs';
-import { BadRequestException } from '../../middlewares/BadRequestException';
+import { BadRequestException } from '../../exceptions/BadRequestException';
 
 export async function fetchAll(): Promise<Users[]> {
   return await userRepository.fetchAll();

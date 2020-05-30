@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { UnauthorizedException } from '../middlewares/UnauthorizedException';
-import { JwtException } from '../middlewares/JwtException';
+import { UnauthorizedException } from '../exceptions/UnauthorizedException';
+import { JwtException } from '../exceptions/JwtException';
 import { config } from '../config/config';
 
 export function authenticationMiddleware(req: Request, res: Response, next: NextFunction) {

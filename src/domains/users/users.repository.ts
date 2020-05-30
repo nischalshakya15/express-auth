@@ -1,6 +1,6 @@
 import { Users } from './users';
 import * as db from '../../utils/db';
-import { ResourceNotFoundException } from '../../middlewares/ResourceNotFoundException';
+import { ResourceNotFoundException } from '../../exceptions/ResourceNotFoundException';
 
 const USERS_TABLE = 'users';
 const USERS_ROLES_TABLE = 'users_roles';

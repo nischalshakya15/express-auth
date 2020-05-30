@@ -1,6 +1,6 @@
-## express-server-typescript
+## express-auth
 
-Sample starter project with required configuration such as express, typescript, prettier, husky and docker.
+Authentication module which can be integrated into any project. 
 
 ## Prerequisites
 
@@ -48,15 +48,7 @@ Sample starter project with required configuration such as express, typescript, 
   **Make sure you don't have any application running on 3306 and 8080 port**
 
     `docker-compose --compatibility up -d`
-     
-- Create a tables in database
-
-    `npm run migrate:latest`
-
-- Run a seed file which will dump data into users table
-
-    `npm run seed:run`
-
+    
 - Open the browser
     
     `http://localhost:8080/api-docs`

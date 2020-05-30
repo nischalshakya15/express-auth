@@ -1,6 +1,6 @@
 import { Users } from '../domains/users/users';
 import { fetchSingleUserWhere } from '../domains/users/users.repository';
-import { BadRequestException } from '../middlewares/BadRequestException';
+import { BadRequestException } from '../exceptions/BadRequestException';
 import * as bcrypt from 'bcryptjs';
 
 export async function authenticate(user: Users): Promise<Users> {
