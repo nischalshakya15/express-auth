@@ -13,10 +13,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(config.app.basePath || '/', routes);
 
 app.all('*', (req: Request) => {
-  throw new GlobalExceptionHandler(
-    HttpStatus.NOT_FOUND,
-    `Can't find ${req.originalUrl} on this server.`
-  );
+  throw new GlobalExceptionHandler(HttpStatus.NOT_FOUND, `Can't find ${req.originalUrl} on this server.`);
 });
 
 app.use(globalExceptionHandlerMiddleware);

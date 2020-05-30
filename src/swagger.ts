@@ -1,11 +1,4 @@
-import {
-  deleteUser,
-  getOneUser,
-  getUsers,
-  postUsers,
-  putUsers,
-  users
-} from './swagger/users.swagger';
+import { deleteUser, getOneUser, getUsers, postUsers, putUsers, users } from './swagger/users.swagger';
 
 export const swaggerDocument = {
   openapi: '3.0.0',

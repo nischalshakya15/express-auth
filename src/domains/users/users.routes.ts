@@ -1,11 +1,5 @@
 import { Router } from 'express';
-import {
-  create,
-  fetchAll,
-  fetchById,
-  remove,
-  update
-} from './users.controller';
+import { create, fetchAll, fetchById, remove, update } from './users.controller';
 
 const router = Router();
 

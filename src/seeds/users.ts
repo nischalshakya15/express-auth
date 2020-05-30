@@ -11,14 +11,12 @@ export async function seed(knex: Knex): Promise<any> {
         {
           id: 1,
           username: 'admin',
-          password:
-            '$2a$10$hyTRmSXcOw..vAqmCvFIouz97fB7WlkjU0mGzLrZtWikRzJVogz1W'
+          password: '$2a$10$hyTRmSXcOw..vAqmCvFIouz97fB7WlkjU0mGzLrZtWikRzJVogz1W'
         },
         {
           id: 2,
           username: 'user',
-          password:
-            '$2a$10$xnwu5ZEbDSyLm5QEssppfeqogW7lrn/KcoOM6wk4qpSkSnkCOT0iy'
+          password: '$2a$10$xnwu5ZEbDSyLm5QEssppfeqogW7lrn/KcoOM6wk4qpSkSnkCOT0iy'
         }
       ]);
     });

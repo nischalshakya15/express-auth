@@ -35,11 +35,7 @@ const options = {
 };
 
 const logger = createLogger({
-  transports: [
-    new transports.Console(options.console),
-    new transports.File(options.error),
-    new transports.File(options.info)
-  ],
+  transports: [new transports.Console(options.console), new transports.File(options.error), new transports.File(options.info)],
   exitOnError: false
 });
 

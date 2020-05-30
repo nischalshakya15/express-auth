@@ -26,11 +26,7 @@ export async function create(user: Users): Promise<Users> {
 export async function validateUser(user: Users) {
   const { username, password } = user;
 
-  const users: Users[] = await db
-    .connection()(USERS_TABLE)
-    .select('*')
-    .where({ username, password })
-    .then(mapToModel);
+  const users: Users[] = await db.connection()(USERS_TABLE).select('*').where({ username, password }).then(mapToModel);
 
   if (users.length === 0) {
     throw new ResourceNotFoundException(`User not found`);
@@ -39,26 +35,16 @@ export async function validateUser(user: Users) {
 }
 
 export async function fetchSingleUserWhere(obj: object): Promise<Users> {
-  const users: Users[] = await db
-    .connection()(USERS_TABLE)
-    .select('*')
-    .where(obj)
-    .then(mapToModel);
+  const users: Users[] = await db.connection()(USERS_TABLE).select('*').where(obj).then(mapToModel);
 
   return users[0];
 }
 
 export async function fetchById(id: number): Promise<Users> {
-  const users: Users[] = await db
-    .connection()(USERS_TABLE)
-    .select('*')
-    .where({ id })
-    .then(mapToModel);
+  const users: Users[] = await db.connection()(USERS_TABLE).select('*').where({ id }).then(mapToModel);
 
   if (users.length === 0) {
-    throw new ResourceNotFoundException(
-      `User resource with given id ${id} not found`
-    );
+    throw new ResourceNotFoundException(`User resource with given id ${id} not found`);
   }
   return users[0];
 }
