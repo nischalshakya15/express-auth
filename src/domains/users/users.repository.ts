@@ -45,9 +45,6 @@ export async function fetchSingleUserWhere(obj: object): Promise<Users> {
     .where(obj)
     .then(mapToModel);
 
-  if (users.length === 0) {
-    throw new ResourceNotFoundException(`User not found`);
-  }
   return users[0];
 }
 
