@@ -10,7 +10,7 @@ const options = {
       format.printf((log) => {
         return `${log.timestamp} | ${log.level}: ${log.message}`;
       })
-    ),
+    )
   },
   info: {
     filename: './logs/info.log',
@@ -20,7 +20,7 @@ const options = {
       format.printf((log) => {
         return `${log.timestamp} | ${log.level}: ${log.message}`;
       })
-    ),
+    )
   },
   error: {
     filename: './logs/error.log',
@@ -30,17 +30,17 @@ const options = {
       format.printf((log) => {
         return `${log.timestamp} | ${log.level}: ${log.message}`;
       })
-    ),
-  },
+    )
+  }
 };
 
 const logger = createLogger({
   transports: [
     new transports.Console(options.console),
     new transports.File(options.error),
-    new transports.File(options.info),
+    new transports.File(options.info)
   ],
-  exitOnError: false,
+  exitOnError: false
 });
 
 export default logger;

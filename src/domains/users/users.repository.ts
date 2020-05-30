@@ -14,7 +14,7 @@ export async function create(user: Users): Promise<Users> {
   const id: number[] = await db.connection().transaction(async (trx) => {
     const userId: number[] = await trx(USERS_TABLE).insert({
       username,
-      password,
+      password
     });
     const usersRolePayload = await usersRolesPayload(userId[0], roles);
     await trx(USERS_ROLES_TABLE).insert(usersRolePayload);
@@ -103,7 +103,7 @@ async function usersRolesPayload(id: number, roles: any[]) {
   roles.forEach((r) => {
     const userRoles = {
       user_id: id,
-      roles: r,
+      roles: r
     };
     rolesPayload.push(userRoles);
   });

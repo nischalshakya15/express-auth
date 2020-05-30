@@ -4,7 +4,7 @@ import {
   fetchAll,
   fetchById,
   remove,
-  update,
+  update
 } from './users.controller';
 
 const router = Router();

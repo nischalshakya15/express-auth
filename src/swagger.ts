@@ -4,49 +4,49 @@ import {
   getUsers,
   postUsers,
   putUsers,
-  users,
+  users
 } from './swagger/users.swagger';
 
 export const swaggerDocument = {
   openapi: '3.0.0',
   info: {
     version: '1.0.0',
-    title: 'Users CRUD API DOCUMENTATION',
+    title: 'Users CRUD API DOCUMENTATION'
   },
   servers: [
     {
-      url: '/api',
-    },
+      url: '/api'
+    }
   ],
   tags: [
     {
-      name: 'Users',
-    },
+      name: 'Users'
+    }
   ],
   paths: {
     '/users': {
       get: getUsers,
-      post: postUsers,
+      post: postUsers
     },
     '/users/{id}': {
       put: putUsers,
       delete: deleteUser,
-      get: getOneUser,
-    },
+      get: getOneUser
+    }
   },
   components: {
     securitySchemes: {
       authorization: {
         type: 'http',
         scheme: 'Bearer',
-        bearerFormat: 'JWT',
-      },
-    },
+        bearerFormat: 'JWT'
+      }
+    }
   },
   security: {
-    authorization: [],
+    authorization: []
   },
   definitions: {
-    Users: users,
-  },
+    Users: users
+  }
 };

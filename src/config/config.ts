@@ -7,19 +7,19 @@ export const config = {
     name: process.env.NAME || 'Server',
     port: process.env.PORT || 8080,
     host: process.env.HOST || '0.0.0.0',
-    basePath: process.env.BASE_PATH || '/api',
+    basePath: process.env.BASE_PATH || '/api'
   },
   jwt: {
     refreshToken: {
       expiresIn: process.env.JWT_REFRESH_TOKEN_EXPIRES_IN || '30m',
-      secret: process.env.JWT_REFRESH_TOKEN_SECRET || 'refresh-token-secret',
+      secret: process.env.JWT_REFRESH_TOKEN_SECRET || 'refresh-token-secret'
     },
     accessToken: {
       expiresIn: process.env.JWT_ACCESS_TOKEN_EXPIRES_IN || '15m',
-      secret: process.env.JWT_ACCESS_TOKEN_SECRET || 'access-token-secret',
-    },
+      secret: process.env.JWT_ACCESS_TOKEN_SECRET || 'access-token-secret'
+    }
   },
-  database: getActiveDatabase(process.env.ACTIVE_DB || 'mysql2'),
+  database: getActiveDatabase(process.env.ACTIVE_DB || 'mysql2')
 };
 
 function getActiveDatabase(db: string) {
@@ -30,8 +30,8 @@ function getActiveDatabase(db: string) {
         user: process.env.DB_MYSQL_USER,
         password: process.env.DB_MYSQL_PASSWORD,
         database: process.env.DB_NAME,
-        host: process.env.DB_HOST || '127.0.0.1',
-      },
+        host: process.env.DB_HOST || '127.0.0.1'
+      }
     };
   }
 }

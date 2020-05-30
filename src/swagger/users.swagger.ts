@@ -6,10 +6,10 @@ export const getUsers = {
     200: {
       description: 'OK',
       schema: {
-        $ref: '#definitions/Users',
-      },
-    },
-  },
+        $ref: '#definitions/Users'
+      }
+    }
+  }
 };
 
 export const postUsers = {
@@ -23,18 +23,18 @@ export const postUsers = {
       description: 'User object need to be created',
       required: true,
       schema: {
-        $ref: '#definitions/Users',
-      },
-    },
+        $ref: '#definitions/Users'
+      }
+    }
   ],
   responses: {
     201: {
       description: 'Created',
       schema: {
-        $ref: '#definitions/Users',
-      },
-    },
-  },
+        $ref: '#definitions/Users'
+      }
+    }
+  }
 };
 
 export const putUsers = {
@@ -46,22 +46,22 @@ export const putUsers = {
       in: 'path',
       required: true,
       type: 'integer',
-      format: 'int64',
+      format: 'int64'
     },
     {
       in: 'body',
       name: 'body',
       required: true,
       schema: {
-        $ref: '#definitions/Users',
-      },
-    },
+        $ref: '#definitions/Users'
+      }
+    }
   ],
   responses: {
     200: {
-      description: 'Ok',
-    },
-  },
+      description: 'Ok'
+    }
+  }
 };
 
 export const deleteUser = {
@@ -73,14 +73,14 @@ export const deleteUser = {
       in: 'path',
       required: true,
       type: 'integer',
-      format: 'int64',
-    },
+      format: 'int64'
+    }
   ],
   responses: {
     200: {
-      description: 'OK',
-    },
-  },
+      description: 'OK'
+    }
+  }
 };
 
 export const getOneUser = {
@@ -94,14 +94,14 @@ export const getOneUser = {
       description: 'ID of user to be return',
       required: true,
       type: 'integer',
-      format: 'int64',
-    },
+      format: 'int64'
+    }
   ],
   responses: {
     200: {
-      description: 'Ok',
-    },
-  },
+      description: 'Ok'
+    }
+  }
 };
 
 export const users = {
@@ -109,21 +109,21 @@ export const users = {
   properties: {
     id: {
       type: 'integer',
-      format: 'int64',
+      format: 'int64'
     },
     username: {
       type: 'string',
-      format: 'string',
+      format: 'string'
     },
     password: {
       type: 'string',
-      format: 'string',
+      format: 'string'
     },
     roles: {
       type: 'array',
       items: {
-        type: 'string',
-      },
-    },
-  },
+        type: 'string'
+      }
+    }
+  }
 };

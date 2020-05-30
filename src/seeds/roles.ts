@@ -9,7 +9,7 @@ export async function seed(knex: Knex): Promise<any> {
       // Inserts seed entries
       return knex(ROLES_TABLE).insert([
         { name: 'ROLE_ADMIN' },
-        { name: 'ROLE_USER' },
+        { name: 'ROLE_USER' }
       ]);
     });
 }

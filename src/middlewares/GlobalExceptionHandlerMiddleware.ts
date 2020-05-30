@@ -17,7 +17,7 @@ export function globalExceptionHandlerMiddleware(
   res.status(exceptionHandler.status || HttpStatus.INTERNAL_SERVER_ERROR).send({
     timestamp: new Date(),
     status: exceptionHandler.status || HttpStatus.INTERNAL_SERVER_ERROR,
-    message: exceptionHandler.message || 'Something went wrong',
+    message: exceptionHandler.message || 'Something went wrong'
   });
   next();
 }
