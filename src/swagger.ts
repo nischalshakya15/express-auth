@@ -27,18 +27,6 @@ export const swaggerDocument = {
       get: getOneUser
     }
   },
-  components: {
-    securitySchemes: {
-      authorization: {
-        type: 'http',
-        scheme: 'Bearer',
-        bearerFormat: 'JWT'
-      }
-    }
-  },
-  security: {
-    authorization: []
-  },
   definitions: {
     Users: users
   }

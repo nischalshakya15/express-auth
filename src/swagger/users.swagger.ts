@@ -1,7 +1,17 @@
+export const authorization = {
+  in: 'header',
+  name: 'AuthorizationToken',
+  required: true,
+  schema: {
+    type: 'string'
+  }
+};
+
 export const getUsers = {
   tags: ['Users'],
   summary: 'Get all users',
   produces: ['application/json'],
+  parameters: [authorization],
   responses: {
     200: {
       description: 'OK',
@@ -17,6 +27,7 @@ export const postUsers = {
   summary: 'Create a user',
   produces: ['application/json'],
   parameters: [
+    authorization,
     {
       in: 'body',
       name: 'body',
@@ -41,6 +52,7 @@ export const putUsers = {
   tags: ['Users'],
   summary: 'Update an existing user',
   parameters: [
+    authorization,
     {
       name: 'id',
       in: 'path',
@@ -68,6 +80,7 @@ export const deleteUser = {
   tags: ['Users'],
   summary: 'Remove an existing user',
   parameters: [
+    authorization,
     {
       name: 'id',
       in: 'path',
@@ -88,6 +101,7 @@ export const getOneUser = {
   summary: 'Find user by ID',
   description: 'Return the single user',
   parameters: [
+    authorization,
     {
       name: 'id',
       in: 'path',
