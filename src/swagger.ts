@@ -1,4 +1,5 @@
-import { deleteUser, getOneUser, getUsers, postUsers, putUsers, users } from './swagger/users.swagger';
+import { authorization, deleteUser, getOneUser, getUsers, postUsers, putUsers, users } from './swagger/users.swagger';
+import { accessToken, authenticateUser, postAccessToken, postAuthenticateUser, refreshToken } from './swagger/auth.swagger';
 
 export const swaggerDocument = {
   openapi: '3.0.0',
@@ -14,6 +15,9 @@ export const swaggerDocument = {
   tags: [
     {
       name: 'Users'
+    },
+    {
+      name: 'Authentication'
     }
   ],
   paths: {
@@ -25,9 +29,19 @@ export const swaggerDocument = {
       put: putUsers,
       delete: deleteUser,
       get: getOneUser
+    },
+
+    '/authenticate': {
+      post: postAuthenticateUser
+    },
+    '/token': {
+      post: postAccessToken
     }
   },
   definitions: {
-    Users: users
+    Users: users,
+    AuthenticateUser: authenticateUser,
+    RefreshToken: refreshToken,
+    AccessToken: accessToken
   }
 };
