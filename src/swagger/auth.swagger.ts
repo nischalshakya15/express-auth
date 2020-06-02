@@ -1,6 +1,7 @@
 export const postAuthenticateUser = {
   tags: ['Authentication'],
   summary: 'Authenticate user',
+  consumes: ['application/json'],
   produces: ['application/json'],
   parameters: [
     {
@@ -17,7 +18,7 @@ export const postAuthenticateUser = {
     200: {
       description: 'OK',
       schema: {
-        $ref: '#definitions/AuthenticateUser'
+        $ref: '#definitions/AuthenticatedResponse'
       }
     }
   }
@@ -42,7 +43,7 @@ export const postAccessToken = {
     201: {
       description: 'Created',
       schema: {
-        $ref: '#definitions/RefreshToken'
+        $ref: '#definitions/AccessToken'
       }
     }
   }
@@ -79,5 +80,13 @@ export const accessToken = {
       type: 'string',
       format: 'string'
     }
+  }
+};
+
+export const authenticatedResponse = {
+  type: 'object',
+  properties: {
+    ...refreshToken.properties,
+    ...accessToken.properties
   }
 };

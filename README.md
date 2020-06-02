@@ -41,6 +41,10 @@ Authentication module which can be integrated into any project.
 - Open the browser
 
   `http://localhost:8080/api-docs`
+  
+- In Authentication section. Call the **/authenticate** url with **username: admin** & **password: admin** to get the accessToken and refreshToken. 
+  
+- Use that **accessToken** to call Users API. 
 
 ## Using Docker
 - Run the container
@@ -52,7 +56,7 @@ Authentication module which can be integrated into any project.
 - Open the browser
     
     `http://localhost:8080/api-docs`
-
+   
 ### References
 
 https://stackify.com/winston-logging-tutorial/
@@ -72,3 +76,5 @@ https://dev.to/mezzolite/beginner-node-js-many-to-many-relationships-3nln
 http://zetcode.com/javascript/winston/
 
 https://swagger.io/docs/specification/authentication/
+
+https://petstore.swagger.io/v2/swagger.json

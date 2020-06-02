@@ -1,6 +1,6 @@
 export const authorization = {
   in: 'header',
-  name: 'AuthorizationToken',
+  name: 'Authorization',
   required: true,
   schema: {
     type: 'string'

@@ -1,17 +1,13 @@
 import { authorization, deleteUser, getOneUser, getUsers, postUsers, putUsers, users } from './swagger/users.swagger';
-import { accessToken, authenticateUser, postAccessToken, postAuthenticateUser, refreshToken } from './swagger/auth.swagger';
+import { accessToken, authenticatedResponse, authenticateUser, postAccessToken, postAuthenticateUser, refreshToken } from './swagger/auth.swagger';
 
 export const swaggerDocument = {
-  openapi: '3.0.0',
+  swagger: '2.0',
   info: {
     version: '1.0.0',
     title: 'Users CRUD API DOCUMENTATION'
   },
-  servers: [
-    {
-      url: '/api'
-    }
-  ],
+  basePath: '/api',
   tags: [
     {
       name: 'Users'
@@ -41,6 +37,7 @@ export const swaggerDocument = {
   definitions: {
     Users: users,
     AuthenticateUser: authenticateUser,
+    AuthenticatedResponse: authenticatedResponse,
     RefreshToken: refreshToken,
     AccessToken: accessToken
   }
