@@ -5,14 +5,15 @@ import { JwtException } from '../exceptions/JwtException';
 import { config } from '../config/config';
 import { AuthenticatedRequest } from '../domains/AuthenticatedRequest';
 
-export function verifyAccessToken(req: Request, res: Response, next: NextFunction) {
-  const accessToken: string | null = req.headers.authorization ? req.headers.authorization : null;
+export function verifyAccessToken(req: AuthenticatedRequest, res: Response, next: NextFunction) {
+  const accessToken: string = req.headers.authorization || req.body.accessToken;
   if (accessToken) {
     const token: string = accessToken.split(' ')[1];
-    jwt.verify(token, config.jwt.accessToken.secret, (error, user) => {
+    jwt.verify(token, config.jwt.accessToken.secret, (error, user: any) => {
       if (error) {
         throw new JwtException(error.message);
       }
+      req.users = user.data;
       next();
     });
   } else {
@@ -21,7 +22,7 @@ export function verifyAccessToken(req: Request, res: Response, next: NextFunctio
 }
 
 export function verifyRefreshToken(req: AuthenticatedRequest, res: Response, next: NextFunction) {
-  const refreshToken: string | null = req.body.refreshToken;
+  const refreshToken: string = req.body.refreshToken;
   if (refreshToken) {
     jwt.verify(refreshToken.split(' ')[1], config.jwt.refreshToken.secret, (err, user: any) => {
       if (err) {

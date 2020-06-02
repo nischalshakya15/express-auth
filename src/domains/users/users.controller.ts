@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import * as userService from './users.service';
 import { Users } from './users';
 import * as HttpStatus from 'http-status-codes';
+import { AuthenticatedRequest } from '../AuthenticatedRequest';
 
 export async function fetchAll(req: Request, res: Response, next: NextFunction) {
   try {
@@ -39,9 +40,10 @@ export async function remove(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-export async function fetchById(req: Request, res: Response, next: NextFunction) {
+export async function fetchById(req: AuthenticatedRequest, res: Response, next: NextFunction) {
   try {
-    const user: Users = await userService.fetchById(Number(req.params.id));
+    const id: number = Number(req.params.id || req.users.id);
+    const user: Users = await userService.fetchById(id);
     res.status(HttpStatus.OK).send({ data: user });
   } catch (error) {
     next(error);

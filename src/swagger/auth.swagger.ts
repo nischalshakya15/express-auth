@@ -26,7 +26,7 @@ export const postAuthenticateUser = {
 
 export const postAccessToken = {
   tags: ['Authentication'],
-  summary: 'Generate access token',
+  summary: 'Generate accessToken using refreshToken',
   produces: ['application/json'],
   parameters: [
     {
@@ -44,6 +44,31 @@ export const postAccessToken = {
       description: 'Created',
       schema: {
         $ref: '#definitions/AccessToken'
+      }
+    }
+  }
+};
+
+export const verifyAccessToken = {
+  tags: ['Authentication'],
+  summary: 'Verify accessToken',
+  produces: ['application/json'],
+  parameters: [
+    {
+      in: 'body',
+      name: 'body',
+      description: 'Specify access token',
+      required: true,
+      schema: {
+        $ref: '#definitions/AccessToken'
+      }
+    }
+  ],
+  responses: {
+    200: {
+      description: 'Ok',
+      schema: {
+        $ref: '#definitions/Users'
       }
     }
   }

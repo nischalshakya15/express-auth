@@ -1,5 +1,13 @@
 import { authorization, deleteUser, getOneUser, getUsers, postUsers, putUsers, users } from './swagger/users.swagger';
-import { accessToken, authenticatedResponse, authenticateUser, postAccessToken, postAuthenticateUser, refreshToken } from './swagger/auth.swagger';
+import {
+  accessToken,
+  authenticatedResponse,
+  authenticateUser,
+  postAccessToken,
+  postAuthenticateUser,
+  refreshToken,
+  verifyAccessToken
+} from './swagger/auth.swagger';
 
 export const swaggerDocument = {
   swagger: '2.0',
@@ -32,6 +40,9 @@ export const swaggerDocument = {
     },
     '/token': {
       post: postAccessToken
+    },
+    '/verifyAccessToken': {
+      post: verifyAccessToken
     }
   },
   definitions: {
