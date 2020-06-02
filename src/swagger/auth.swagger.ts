@@ -1,3 +1,12 @@
+export const authorization = {
+  in: 'header',
+  name: 'Authorization',
+  required: true,
+  schema: {
+    type: 'string'
+  }
+};
+
 export const postAuthenticateUser = {
   tags: ['Authentication'],
   summary: 'Authenticate user',
@@ -53,17 +62,7 @@ export const verifyAccessToken = {
   tags: ['Authentication'],
   summary: 'Verify accessToken',
   produces: ['application/json'],
-  parameters: [
-    {
-      in: 'body',
-      name: 'body',
-      description: 'Specify access token',
-      required: true,
-      schema: {
-        $ref: '#definitions/AccessToken'
-      }
-    }
-  ],
+  parameters: [authorization],
   responses: {
     200: {
       description: 'Ok',

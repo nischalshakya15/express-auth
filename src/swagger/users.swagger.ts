@@ -1,11 +1,4 @@
-export const authorization = {
-  in: 'header',
-  name: 'Authorization',
-  required: true,
-  schema: {
-    type: 'string'
-  }
-};
+import { authorization } from './auth.swagger';
 
 export const getUsers = {
   tags: ['Users'],

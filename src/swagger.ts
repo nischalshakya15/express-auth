@@ -1,4 +1,4 @@
-import { authorization, deleteUser, getOneUser, getUsers, postUsers, putUsers, users } from './swagger/users.swagger';
+import { deleteUser, getOneUser, getUsers, postUsers, putUsers, users } from './swagger/users.swagger';
 import {
   accessToken,
   authenticatedResponse,

@@ -6,7 +6,7 @@ import { config } from '../config/config';
 import { AuthenticatedRequest } from '../domains/AuthenticatedRequest';
 
 export function verifyAccessToken(req: AuthenticatedRequest, res: Response, next: NextFunction) {
-  const accessToken: string = req.headers.authorization || req.body.accessToken;
+  const accessToken: string | null = req.headers.authorization || null;
   if (accessToken) {
     const token: string = accessToken.split(' ')[1];
     jwt.verify(token, config.jwt.accessToken.secret, (error, user: any) => {
