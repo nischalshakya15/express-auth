@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { UnauthorizedException } from '../exceptions/UnauthorizedException';
 import { JwtException } from '../exceptions/JwtException';
@@ -32,7 +32,7 @@ export function verifyRefreshToken(req: AuthenticatedRequest, res: Response, nex
   if (refreshToken) {
     const token: string[] = refreshToken.split(' ');
     if (token[0] === TOKEN_TYPE) {
-      jwt.verify(refreshToken[1], config.jwt.refreshToken.secret, (err, user: any) => {
+      jwt.verify(token[1], config.jwt.refreshToken.secret, (err, user: any) => {
         if (err) {
           throw new JwtException(err.message);
         }
