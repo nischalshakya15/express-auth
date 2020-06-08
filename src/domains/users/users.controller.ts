@@ -4,9 +4,9 @@ import { Users } from './users';
 import * as HttpStatus from 'http-status-codes';
 import { AuthenticatedRequest } from '../AuthenticatedRequest';
 
-export async function fetchAll(req: Request, res: Response, next: NextFunction) {
+export async function fetchAll(req: AuthenticatedRequest, res: Response, next: NextFunction) {
   try {
-    const users: Users[] = await userService.fetchAll();
+    const users: Users[] = await userService.fetchAll(req.query);
     res.status(HttpStatus.OK).send({ data: users });
   } catch (error) {
     next(error);

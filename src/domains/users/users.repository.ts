@@ -5,8 +5,8 @@ import { ResourceNotFoundException } from '../../exceptions/ResourceNotFoundExce
 const USERS_TABLE = 'users';
 const USERS_ROLES_TABLE = 'users_roles';
 
-export async function fetchAll(): Promise<Users[]> {
-  return await db.connection()(USERS_TABLE).select('*').then(mapToModel);
+export async function fetchAll(offset: number, size: number): Promise<Users[]> {
+  return await db.connection()(USERS_TABLE).select('*').limit(size).offset(offset).then(mapToModel);
 }
 
 export async function create(user: Users): Promise<Users> {

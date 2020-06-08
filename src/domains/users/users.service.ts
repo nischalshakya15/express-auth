@@ -2,9 +2,12 @@ import { Users } from './users';
 import * as userRepository from './users.repository';
 import * as bcrypt from 'bcryptjs';
 import { BadRequestException } from '../../exceptions/BadRequestException';
+import { Query } from '../query';
+import { config } from '../../config/config';
 
-export async function fetchAll(): Promise<Users[]> {
-  return await userRepository.fetchAll();
+export async function fetchAll(query: Query): Promise<Users[]> {
+  const { page, size } = query;
+  return await userRepository.fetchAll(page ? page : config.pagination.page, size ? size : config.pagination.size);
 }
 
 export async function create(user: Users): Promise<Users> {

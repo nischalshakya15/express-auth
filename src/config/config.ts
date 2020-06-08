@@ -19,6 +19,10 @@ export const config = {
       secret: process.env.JWT_ACCESS_TOKEN_SECRET || 'access-token-secret'
     }
   },
+  pagination: {
+    size: 10,
+    page: 0
+  },
   database: getActiveDatabase(process.env.ACTIVE_DB || 'mysql2')
 };
 
