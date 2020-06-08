@@ -3,11 +3,14 @@ import * as userService from './users.service';
 import { Users } from './users';
 import * as HttpStatus from 'http-status-codes';
 import { AuthenticatedRequest } from '../AuthenticatedRequest';
+import { buildMeta } from '../../utils/pagination';
 
 export async function fetchAll(req: AuthenticatedRequest, res: Response, next: NextFunction) {
   try {
     const users: Users[] = await userService.fetchAll(req.query);
-    res.status(HttpStatus.OK).send({ data: users });
+    const count: number = await userService.count();
+    const meta = buildMeta(users.length, count, req.query.page);
+    res.status(HttpStatus.OK).send({ data: users, meta });
   } catch (error) {
     next(error);
   }

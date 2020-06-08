@@ -5,8 +5,8 @@ import { ResourceNotFoundException } from '../../exceptions/ResourceNotFoundExce
 const USERS_TABLE = 'users';
 const USERS_ROLES_TABLE = 'users_roles';
 
-export async function fetchAll(offset: number, size: number): Promise<Users[]> {
-  return await db.connection()(USERS_TABLE).select('*').limit(size).offset(offset).then(mapToModel);
+export async function fetchAll(page: number, size: number): Promise<Users[]> {
+  return await db.connection()(USERS_TABLE).select('*').limit(size).offset(page).then(mapToModel);
 }
 
 export async function create(user: Users): Promise<Users> {
@@ -65,6 +65,15 @@ export async function remove(id: number): Promise<void> {
     await trx(USERS_ROLES_TABLE).del().where({ user_id: id });
     await trx(USERS_TABLE).del().where({ id });
   });
+}
+
+export async function count(): Promise<number> {
+  const total: number | string | undefined = await db
+    .connection()(USERS_TABLE)
+    .count('id as count')
+    .first()
+    .then((res) => res?.count);
+  return Number(total);
 }
 
 function mapToModel(users: any[]) {

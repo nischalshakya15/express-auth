@@ -4,7 +4,23 @@ export const getUsers = {
   tags: ['Users'],
   summary: 'Get all users',
   produces: ['application/json'],
-  parameters: [authorization],
+  parameters: [
+    authorization,
+    {
+      name: 'page',
+      in: 'query',
+      required: true,
+      type: 'integer',
+      format: 'int64'
+    },
+    {
+      name: 'size',
+      in: 'query',
+      required: true,
+      type: 'integer',
+      format: 'int64'
+    }
+  ],
   responses: {
     200: {
       description: 'OK',
