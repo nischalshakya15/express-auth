@@ -1,6 +1,9 @@
 import jwt from 'jsonwebtoken';
+
 import { Users } from '../domains/users/users';
+
 import { config } from '../config/config';
+
 import { insert } from './token.repository';
 
 export async function generateToken(user: Users) {

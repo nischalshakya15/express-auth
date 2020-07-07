@@ -1,5 +1,7 @@
-import { AuthenticatedRequest } from '../domains/AuthenticatedRequest';
 import { NextFunction, Response } from 'express';
+
+import { AuthenticatedRequest } from '../domains/AuthenticatedRequest';
+
 import { fetchById } from '../domains/users/users.service';
 
 export async function fetchUser(req: AuthenticatedRequest, res: Response, next: NextFunction) {

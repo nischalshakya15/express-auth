@@ -1,8 +1,9 @@
+import {UNAUTHORIZED} from 'http-status-codes';
+
 import { GlobalExceptionHandler } from './GlobalExceptionHandler';
-import * as HttpStatus from 'http-status-codes';
 
 export class UnauthorizedException extends GlobalExceptionHandler {
   constructor(message: string) {
-    super(HttpStatus.UNAUTHORIZED, message);
+    super(UNAUTHORIZED, message);
   }
 }

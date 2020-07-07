@@ -1,8 +1,11 @@
-import { NextFunction, Request, Response } from 'express';
-import * as userService from './users.service';
-import { Users } from './users';
 import * as HttpStatus from 'http-status-codes';
+import { NextFunction, Request, Response } from 'express';
+
+import { Users } from './users';
+import * as userService from './users.service';
+
 import { AuthenticatedRequest } from '../AuthenticatedRequest';
+
 import { buildMeta } from '../../utils/pagination';
 
 export async function fetchAll(req: AuthenticatedRequest, res: Response, next: NextFunction) {

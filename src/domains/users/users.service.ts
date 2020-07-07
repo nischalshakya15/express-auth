@@ -1,8 +1,12 @@
+import * as bcrypt from 'bcryptjs';
+
 import { Users } from './users';
 import * as userRepository from './users.repository';
-import * as bcrypt from 'bcryptjs';
+
 import { BadRequestException } from '../../exceptions/BadRequestException';
+
 import { Query } from '../query';
+
 import * as pagination from '../../utils/pagination';
 
 export async function fetchAll(query: Query): Promise<Users[]> {

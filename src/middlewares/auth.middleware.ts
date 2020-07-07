@@ -1,8 +1,11 @@
-import { NextFunction, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { UnauthorizedException } from '../exceptions/UnauthorizedException';
+import { NextFunction, Response } from 'express';
+
 import { JwtException } from '../exceptions/JwtException';
+import { UnauthorizedException } from '../exceptions/UnauthorizedException';
+
 import { config } from '../config/config';
+
 import { AuthenticatedRequest } from '../domains/AuthenticatedRequest';
 
 const TOKEN_TYPE = 'Bearer';
