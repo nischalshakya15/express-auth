@@ -1,4 +1,4 @@
-import {UNAUTHORIZED} from 'http-status-codes';
+import { UNAUTHORIZED } from 'http-status-codes';
 
 import { GlobalExceptionHandler } from './GlobalExceptionHandler';
 

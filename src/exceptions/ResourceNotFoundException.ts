@@ -1,4 +1,4 @@
-import {NOT_FOUND} from 'http-status-codes';
+import { NOT_FOUND } from 'http-status-codes';
 
 import { GlobalExceptionHandler } from './GlobalExceptionHandler';
 

@@ -8,7 +8,6 @@ import { generateAccessToken, generateToken } from './jwt';
 
 import { AuthenticatedRequest } from '../domains/AuthenticatedRequest';
 
-
 export async function authenticate(req: Request, res: Response, next: NextFunction) {
   try {
     const user: Users = await authService.authenticate(req.body);
