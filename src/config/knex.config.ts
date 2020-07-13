@@ -6,7 +6,7 @@ const camelCase = require('camelize');
 
 const knexConfig = {
   ...config.database,
-  postProcessResponse: (result: any) =>{
+  postProcessResponse: (result: any) => {
     if (lodash.isArray(result)) {
       return result.map((row) => camelCase(row));
     }
