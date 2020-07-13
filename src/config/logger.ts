@@ -1,6 +1,7 @@
 import { createLogger, format, transports } from 'winston';
-import { config } from './config';
 import DailyRotateFile = require('winston-daily-rotate-file');
+
+import { config } from './config';
 
 const INFO_FILE_NAME = config.app.name + '-%DATE%-info.log';
 const ERROR_FILE_NAME = config.app.name + '-%DATE%-error.log';

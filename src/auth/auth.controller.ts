@@ -1,8 +1,11 @@
-import { NextFunction, Request, Response } from 'express';
-import { Users } from '../domains/users/users';
 import * as HttpStatus from 'http-status-codes';
-import { generateAccessToken, generateToken } from './jwt';
+import { NextFunction, Request, Response } from 'express';
+
+import { Users } from '../domains/users/users';
+
 import * as authService from './auth.service';
+import { generateAccessToken, generateToken } from './jwt';
+
 import { AuthenticatedRequest } from '../domains/AuthenticatedRequest';
 
 export async function authenticate(req: Request, res: Response, next: NextFunction) {

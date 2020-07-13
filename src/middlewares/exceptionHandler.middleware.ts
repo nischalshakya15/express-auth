@@ -1,6 +1,8 @@
-import { GlobalExceptionHandler } from '../exceptions/GlobalExceptionHandler';
-import { NextFunction, Request, Response } from 'express';
 import * as HttpStatus from 'http-status-codes';
+import { NextFunction, Request, Response } from 'express';
+
+import { GlobalExceptionHandler } from '../exceptions/GlobalExceptionHandler';
+
 import logger from '../config/logger';
 
 export function exceptionHandlerMiddleware(exceptionHandler: GlobalExceptionHandler, req: Request, res: Response, next: NextFunction) {
